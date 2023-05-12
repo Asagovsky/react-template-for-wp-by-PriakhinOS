@@ -1,0 +1,30 @@
+@use 'sass:math'
+
+=addFont($name, $path)
+  @font-face
+    font-family: $name
+    src: url($path) format("truetype")
+
+=useFont($name, $weight)
+  font-family: $name, sans-serif
+  font-weight: $weight
+
+=xxs()
+  @media screen and (max-width: 400px)
+    @content
+
+=xs()
+  @media screen and (max-width: 525px)
+    @content
+
+=sm()
+  @media screen and (max-width: 767px)
+    @content
+
+=md()
+  @media screen and (max-width: 1024px)
+    @content
+
+=lg()
+  @media screen and (max-width: 1440px)
+    @content

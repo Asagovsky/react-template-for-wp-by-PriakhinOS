@@ -1,7 +1,4 @@
 <?php
-
-
-
 /**
  * Add support for things in admin panel
  * @return void
@@ -11,7 +8,6 @@ function add_support()
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
 }
-
 add_action('after_setup_theme', 'add_support');
 
 /**
@@ -37,6 +33,11 @@ if (function_exists('acf_add_options_page')) {
         'capability' => 'edit_posts',
         'redirect' => false
     ));
+    acf_add_options_sub_page(array(
+        'page_title' => 'Header Settings',
+        'menu_title' => 'Header',
+        'parent_slug' => 'theme-general-settings',
+    ));
 }
 
 class ReactPage
@@ -44,10 +45,8 @@ class ReactPage
     private $page;
     private $dataFunc;
     private $data;
-    private $pageName;
 
-    function __construct($page, $dataFunc)
-    {
+    function __construct($page, $dataFunc = false){
         $this->page = $page;
         $this->dataFunc = $dataFunc;
         $this->data = array();
@@ -80,8 +79,8 @@ class ReactPage
 //    return [
 //        'title' => get_the_title(),
 //        'content' => get_the_content(),
-//        'acf' => get_fields(),
+//        'fields' => get_fields(),
 //        'options' => get_fields('options'),
 //    ];
 //});
-new ReactPage('main', false);
+new ReactPage('main');

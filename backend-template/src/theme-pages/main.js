@@ -1,25 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import merge from "lodash/merge";
 import '../main.sass'
 import {data} from "../mock/main.mock";
-import merge from "lodash/merge";
-import {MainPage} from "../pages/Main.page";
+import {HomePage} from "../pages/Home.page";
 
 const params = {
   slug: 'main', // slug of the page to render
   idToRender: '#main-page', // id of the element to render
-  usesOptions: false, // if the page uses options
+  usesOptions: true, // if the page uses options
   usesMockFallback: false, // if the page uses mock data
   usesCleanMock: false, // if the page uses clean mock data
   consoleDebug: false, // if the page uses console debug
-  Page: MainPage, // page component to render
+  Page: HomePage, // page component to render
   useApi: true // if the page uses api or enqueued data
 }
 
 const getData = async () => {
   let wpData = {}
 
-  if(!params.useApi) {
+  if(params.useApi) {
     const dataRequest = await fetch(window.location.origin + `/wp-json/wp/v2/pages?slug=${params.slug}&acf_format=standard`, {
       method: 'GET',
       headers: {
@@ -34,8 +34,9 @@ const getData = async () => {
       options = await optionsRequest.json()
     }
     if (!page[0]) return
-    const wpData = {
+    wpData = {
       fields: page[0].acf,
+      title: page[0].title,
       options: options
     }
 

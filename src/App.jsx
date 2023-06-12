@@ -1,10 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { data as mainPageData } from "./mock/main.mock.js";
 import { HomePage } from "./pages/Home.page.jsx";
-import {data as mainPageData} from './mock/main.mock.js'
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App" >
+    <div className="App">
       <Routes>
         <Route path="/" element={<HomePage data={mainPageData} />} />
       </Routes>

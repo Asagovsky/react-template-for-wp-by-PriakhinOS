@@ -1,6 +1,11 @@
-export const HomePage = ({data}) => {
-  const fields = data.fields
+import { useEffect } from "react";
+
+export const HomePage = ({ data }) => {
+  // const {fields} = data;
+
   return (
-    <div className='home-page'></div>
+    <div>
+      hello from react
+    </div>
   );
 };

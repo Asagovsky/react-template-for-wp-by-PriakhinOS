@@ -1,5 +1,5 @@
 export const data = {
-  "fields": {
-    "foo": "bar"
-  }
-}
+  fields: {
+    "title": "hello world",
+  },
+};

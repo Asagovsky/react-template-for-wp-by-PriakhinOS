@@ -1,10 +1,10 @@
-export const WPImage = ({wpimage, className = ''}) => {
+export const WPImage = ({wpimage, className = '', ...props}) => {
   if(!wpimage){
-    return <img src="" className={className} alt="NO IMAGE"/>
+    return <img src="" className={className} alt="NO IMAGE" {...props}/>
   }
 
   if(typeof wpimage === 'string'){
-    return <img src={wpimage} className={className} alt="temporary"/>
+    return <img src={wpimage} className={className} alt="temporary" {...props}/>
   }
 
   return (
@@ -21,6 +21,7 @@ export const WPImage = ({wpimage, className = ''}) => {
       width={wpimage.width}
       height={wpimage.height}
       alt={wpimage.alt}
+      {...props}
     />
   )
 }

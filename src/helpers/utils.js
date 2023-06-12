@@ -1,0 +1,1 @@
+export const deleteAllSpacesFromString = (str) => str.replace(/ /g, "");

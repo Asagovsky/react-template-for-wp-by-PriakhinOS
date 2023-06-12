@@ -1,0 +1,22 @@
+{
+  "name": "react-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "wp-scripts start src/theme-pages/*.js",
+    "build": "wp-scripts build src/theme-pages/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.21.5",
+    "@svgr/webpack": "^7.0.0",
+    "@wordpress/core-data": "^6.9.0",
+    "@wordpress/scripts": "^26.3.0",
+    "classnames": "^2.3.2",
+    "sass": "^1.62.1"
+  }
+}
